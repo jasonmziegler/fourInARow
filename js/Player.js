@@ -1,9 +1,9 @@
 class Player {
-    constructor(name, color) {
-      this.name = name,
-      this.id = id,
-      this.color = color,
-      this.active = false,
+    constructor(name, color, id, active) {
+      this.name = name;
+      this.id = id;
+      this.color = color;
+      this.active = false,;
       this.tokens = createTokens(21);
     }
 
@@ -19,5 +19,13 @@ class Player {
 	 		newTokenArray.push(token)
 	 	}
 	 	return newTokenArray;
+    }
+
+    get unusedTokens() {
+    	return this.tokens.filter( token => !token.dropped);
+    }
+
+    get activeToken() {
+    	return this.unusedTokens[0];
     }
 }
