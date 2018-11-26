@@ -9,10 +9,10 @@ class Board {
     createSpaces() {
     	const spaces = [];
 
-    	for (let x=0;x<this.rows;x++) {
+    	for (let x=0;x<this.columns;x++) {
     		const col = [];
 
-    		for (let y=0;y<this.columns;y++){
+    		for (let y=0;y<this.rows;y++){
     			const space = new Space(x,y);
     			col.push(space);
     		}
@@ -28,7 +28,7 @@ class Board {
     * Draws the game board in browser.
     */
     drawHTMLBoard() {
-    	for (let column of this.spaces;) {
+    	for (let column of this.spaces) {
     		for (let space of column) {
     			space.drawSVGSpace();
     		}

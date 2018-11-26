@@ -1,24 +1,26 @@
 class Token {
-    constructor() {
+    constructor(index, owner) {
     	this.owner = owner;
-    	this.id = `token-${index}-${owner-id}`;
+    	this.id = `token-${index}-${owner.id}`;
     	this.dropped = false;
-
     }
 
-    /*
-    * This method will draw a token.
-    */
-    drawHTMLToken() {
-    	const newDiv = document.createElement("div");
-    	document.getElementById('game-board-underlay').appendChild(token);
-    	newDiv.setAttribute("id", this.id);
-    	newDiv.setAttribute("class", "token");
-    	newDiv.style.backgroundColor = this.owner.color;
-
-    }
-
+    /** 
+     * Gets associated htmlToken.
+     * @return  {element}   Html element associated with token object.
+     */
     get htmlToken() {
-    	return this.drawHTMLToken;
+    	return document.getElementById(this.id);
     }
+
+     /** 
+     * Draws new HTML token.
+     */
+    drawHTMLToken() {
+    	const token = document.createElement("div");
+    	document.getElementById('game-board-underlay').appendChild(token);
+    	token.setAttribute("id", this.id);
+    	token.setAttribute("class", "token");
+    	token.style.backgroundColor = this.owner.color;
+    }    
 }
