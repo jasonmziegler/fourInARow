@@ -19,10 +19,14 @@ class Game {
     	return playerArray;
 
     }
-    /**
-    * Gets game ready to play.
-    */
+    /** 
+ 	* Initializes game. 
+ 	*/
     startGame() {
+    	this.board.drawHTMLBoard();
+    	this.activePlayer.activeToken.drawHTMLToken();
+
+    	this.ready = true;
 
     }
 
