@@ -46,6 +46,7 @@ class Token {
     	}
     }
 
+
     /** 
      * Draws new HTML token.
      */
@@ -56,4 +57,19 @@ class Token {
     	token.setAttribute("class", "token");
     	token.style.backgroundColor = this.owner.color;
     }    
+
+
+    /** 
+ 	* Drops html token into targeted board space.
+ 	* @param   {Object}   target - Targeted space for dropped token.
+	 * @param   {function} reset  - The reset function to call after the drop animation has completed.
+ 	*/
+    drop(target, reset) {
+    	//set drop property of the TOKEN to true
+    	this.dropped = true;
+    	//animate htmlToken falling into the target space
+    	$(this.htmlToken).animate({
+    		top: (target.y * target.diameter)
+    	}, 750, 'easeOutBounce', reset);
+    }
 }
